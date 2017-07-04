@@ -27,7 +27,9 @@
             <dl class="dl-horizontal">
 
                 <dt>全部类型</dt>
-                <dd>字符串(string) 数字(number) 布尔(boolean) undefined null 对象(object) 数组(array) 函数(function) 日期(date) 错误(error) 正则(regexp) ...</dd>
+                <dd>字符串(string) 数字(number) 布尔(boolean) undefined null 对象(object) 数组(array) 函数(function) 日期(date)
+                    错误(error) 正则(regexp) ...
+                </dd>
 
                 <dt>按存储类型分类</dt>
                 <dd><strong>原始类型(值类型,基本类型)，对象类型(引用型)</strong></dd>
@@ -60,6 +62,82 @@
                 <dd>可转换false: undefined, null, 0, -0, NaN, ""</dd>
 
             </dl>
+
+            <pre>
+                (function(){ return typeof arguments })();
+            </pre>
+
+            <pre>
+                var f = function g(){ return 23 };
+                typeof g();
+            </pre>
+
+            <pre>
+                var a = 1, b=a=typeof b;
+                console.log(b);
+            </pre>
+
+            <pre>
+                (function f(f){
+                    return typeof f();
+                })(function(){ return 1; });
+            </pre>
+
+            <pre>
+                var baz='a';
+                var foo = {
+                    bar: function() { return this.baz; },
+                    baz: 1
+                  };
+                  (function(){
+                    return typeof arguments[0]();
+                  })(foo.bar);
+            </pre>
+
+            <pre>
+                var foo = {
+                    bar: function(){ return this.baz; },
+                    baz: 1
+                  }
+                  typeof (f = foo.bar)();
+            </pre>
+
+            <pre>
+                 var f = (function f(){ return "1"; }, function g(){ return 2; })();
+                typeof f;
+            </pre>
+
+            <pre>
+                var x = 1;
+  if (function f(){}) {
+    x += typeof f;
+  }
+  x;
+            </pre>
+
+            <pre>
+                var x = [typeof x, typeof y][1];
+  typeof typeof x;
+            </pre>
+
+            <pre>
+                (function(foo){
+    return typeof foo.bar;
+  })({ foo: { bar: 1 } });
+            </pre>
+
+            <pre>
+                (function f(){
+    function f(){ return 1; }
+    return f();
+    function f(){ return 2; }
+  })();
+            </pre>
+
+            <pre>
+                function f(){ return f; }
+  new f() instanceof f;
+            </pre>
 
         </div>
     </div>
