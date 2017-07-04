@@ -54,6 +54,13 @@
                     </td>
                 </tr>
 
+                <tr>
+                    <td></td>
+                    <td>
+                        全局作用于，局部作用于(相对的)
+                    </td>
+                </tr>
+
 
             </table>
 
@@ -92,6 +99,29 @@ var a = 2;
 }
 fn();
 alert(a);
+            </pre>
+
+            <pre>
+                var a = 1;
+                function fn1 () {
+                    console.log(a);
+                }
+                function fn2 () {
+                    var a = 2;
+                    fn1();
+                }
+                fn2();
+            </pre>
+
+
+            <pre>
+                var a = 2;
+                function fn() {
+                    var a = b =1;
+                }
+                fn();
+                console.log(a);
+                console.log(b);
             </pre>
 
 
