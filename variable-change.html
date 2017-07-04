@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;img-src *;">-->
+
+    <title>js基础-变量类型</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">text-center</h1>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">变量</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <td>类型转换</td>
+                    <td>显示转换，隐示转换（稀奇古怪）</td>
+                </tr>
+                <tr>
+                    <td>显示转换</td>
+                    <td>Number('123'), String(123), Boolean([]), Object(3) 相当于 new Number(3)</td>
+                </tr>
+                <tr>
+                    <td>隐示转换</td>
+                    <td>
+                        <table class="table table-hover table-striped table-bordered">
+                            <tr>
+                                <td>值</td>
+                                <td>字符串</td>
+                                <td>数字</td>
+                                <td>布尔</td>
+                                <td>对象</td>
+                            </tr>
+                            <tr>
+                                <td>undefined</td>
+                                <td>"undefined"</td>
+                                <td>NaN</td>
+                                <td>false</td>
+                                <td>error</td>
+                            </tr>
+                            <tr>
+                                <td>null</td>
+                                <td>"null"</td>
+                                <td>0</td>
+                                <td>false</td>
+                                <td>error</td>
+                            </tr>
+                            <tr>
+                                <td>true</td>
+                                <td>"true"</td>
+                                <td>1</td>
+                                <td></td>
+                                <td>new Boolean(true)</td>
+                            </tr>
+                            <tr>
+                                <td>false</td>
+                                <td>"false"</td>
+                                <td>0</td>
+                                <td></td>
+                                <td>new Boolean(false)</td>
+                            </tr>
+                            <tr>
+                                <td>""</td>
+                                <td></td>
+                                <td>0</td>
+                                <td>false</td>
+                                <td>new String("")</td>
+                            </tr>
+                            <tr>
+                                <td>123</td>
+                                <td>"123"</td>
+                                <td></td>
+                                <td>true</td>
+                                <td>new Number(123)</td>
+                            </tr>
+                            <tr>
+                                <td>'abc'</td>
+                                <td></td>
+                                <td>NaN</td>
+                                <td>true</td>
+                                <td>new String('abc')</td>
+                            </tr>
+                            <tr>
+                                <td>0</td>
+                                <td>"0"</td>
+                                <td></td>
+                                <td>false</td>
+                                <td>new Number(0)</td>
+                            </tr>
+                            <tr>
+                                <td>{}</td>
+                                <td></td>
+                                <td></td>
+                                <td>true</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>[]</td>
+                                <td></td>
+                                <td></td>
+                                <td>true</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>function(){}</td>
+                                <td></td>
+                                <td>NaN</td>
+                                <td>true</td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>==</td>
+                    <td>null==undefined,'0'==0,0==false <strong>如果两边为基本类型，尽可能转换为数字在比较</strong></td>
+                </tr>
+
+                <tr>
+                    <td>===</td>
+                    <td>{}==={}, []===[], NaN === NaN</td>
+                </tr>
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

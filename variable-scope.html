@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *;img-src *;">-->
+
+    <title>js基础-变量类型</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">变量</h1>
+
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">变量-作用域</h3>
+        </div>
+        <div class="panel-body">
+
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <td>概念</td>
+                    <td>在...空间或者范围内，对变量的读写操作.
+                            <!--<script>console.log(a);</script>
+                        <script>var a = 1;</script> 为不同域-->
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>浏览器-js解析器（不准确）
+                        <br>
+                        =>1.在代码运行之前所有var的变量 都预先赋值undefined :(声明提前，变量提前，都是在预编译中进行的)
+                        <br>
+                        把所有的函数 function 整个函数快存储
+                        <br>
+                        遇到重名只留一个，
+                        变量函数重名只留函数，
+                        函数重名留后一个
+                        <br>
+                        参数
+                        <br>
+                        =>2.逐行运行代码
+                        <br>
+                        表达式: = +-*/% ... (改变值)
+                        <br>
+                        声明
+                    </td>
+                </tr>
+
+
+            </table>
+
+            <pre>
+console.log(a);
+var a=1;
+console.log(a);
+            </pre>
+            <pre>
+console.log(a);
+var a=1;
+console.log(a);
+function a(){ a=2 };
+console.log(a);
+var a = 3;
+console.log(a);
+function a(){ a=4 };
+console.log(a);
+a();
+            </pre>
+
+
+            <table class="table table-hover table-striped table-bordered">
+                <tr>
+                    <td>作用域</td>
+                    <td></td>
+                </tr>
+            </table>
+
+
+            <pre>
+var a = 1;
+function fn () {
+console.log(a);
+var a = 2;
+}
+fn();
+alert(a);
+            </pre>
+
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
