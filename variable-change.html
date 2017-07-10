@@ -128,15 +128,101 @@
 
                 <tr>
                     <td>==</td>
-                    <td>null==undefined,'0'==0,0==false <strong>如果两边为基本类型，尽可能转换为数字在比较</strong></td>
+                    <td>null==undefined,'0'==0,0==false</td>
                 </tr>
 
                 <tr>
                     <td>===</td>
-                    <td>{}==={}, []===[], NaN === NaN</td>
+                    <td>{}==={}, []===[], [] === ![], NaN === NaN</td>
+                </tr>
+
+                <tr>
+                    <td>对象转换为原始值</td>
+                    <td>
+                        <strong>
+                            对象 => 布尔 : (!!obj) 全为true
+                            <br>
+                            对象 => 字符串 : (obj+"") 1. obj.toString() 返回原始值。2. 如果没有toString()方法，调用valueOf(),在强制转换字符串。
+                            <br>
+                            对象 => 数字 : (+obj) 1.先调用valueOf()，在强制转换数字。2. 如果没有valueOf()方法，调用toString(),在强制转换数字。
+                        </strong>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>"=="总结</td>
+                    <td>
+                        <strong>
+                            1 只要出现NaN 肯定 false
+                            <br>
+                            2 == 两边数据类型相同，就是 === 的比较
+                            <br>
+                            3 数据类型不同。如果两边(或者一边)基本类型，尽可能转换为数字在比较。
+                            <br>
+                            4 如果一边为obj 另一边为数字/字符串，将obj转换为数字/字符串在比较。
+                            <br>
+                            参考：
+                            <br>
+                            http://www.ecma-international.org/ecma-262/5.1/#sec-11.9.3
+                            <br>
+                            http://yanhaijing.com/es5/#332
+                        </strong>
+                    </td>
                 </tr>
 
             </table>
+
+            <pre>
+                1==true
+            </pre>
+
+            <pre>
+                [] == ![]; [] == [];
+            </pre>
+
+            <pre>
+                'true'==true
+                'true'==false
+            </pre>
+
+            <pre>
+                [] == false
+                {} == false
+            </pre>
+
+            <pre>
+                [1,2,3] == '1,2,3'
+                [] == 0
+                [1] == 1
+                2 == {valueOf: function(){return 2}}
+                ({ toString:function(){ return 1 } , valueOf:function(){ return [] }}) == 1
+            </pre>
+
+            <pre>
+
+                先运行 谁？
+
+                var arr = {};
+                arr.valueOf = function () { return 1; }
+                arr.toString = function () { return 2; }
+                console.log(arr == 1);
+
+                var arr = {};
+                arr.valueOf = function () { return []; }
+                arr.toString = function () { return 1; }
+                console.log(arr == 1);
+
+                var arr = {};
+                arr.valueOf = function () { return "1"; }
+                arr.toString = function () { return "2"; }
+                console.log(arr == "1");
+            </pre>
+
+            <pre>
+                0 == false
+                2 == {valueOf: function(){return 2}}
+                2 == {toString: function(){return 2}}
+            </pre>
 
         </div>
     </div>
